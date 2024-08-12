@@ -10,11 +10,37 @@ class Dosage:
         """Returns the daily dose of a given medication in mg."""
         #todo finde tägliche Dosis von Medikamenten
         if medikament == "Ibuprofen":
-            return 1600
+            return 1200
         elif medikament == "Paracetamol":
-            return 3000
-        else:
             return 4000
+        elif medikament == "Aspirin":
+            return 3000
+        elif medikament == "Diclofenac":
+            return 75
+        elif medikament == "Naproxen":
+            return 760
+        elif medikament == "Novalgin":
+            return 4000
+        else:
+            "Medikament nicht gefunden"
+        
+    def resource_medication(self,medikament:str) -> str:
+        """Returns the resource of a given medication."""
+        #todo finde Ressource von Medikamenten
+        if medikament == "Ibuprofen":
+            return "https://www.gelbeseiten.de/ratgeber/gl/ibuprofen-hoechstdosis-ibuprofen-richtig-dosieren"
+        elif medikament == "Paracetamol":
+            return "https://www.gelbeseiten.de/ratgeber/gl/paracetamol-wirkung-anwendung-und-dosierung-des-schmerzmittels"
+        elif medikament == "Aspirin":
+            return "https://www.gelbeseiten.de/ratgeber/gl/schmerzmittel-aspirin-wirkung-anwendung-und-dosierung-von-acetylsalicylsaeure"
+        elif medikament == "Diclofenac":
+            return "https://www.gelbeseiten.de/ratgeber/gl/diclofenac-wirkung-anwendung-und-dosierung-des-schmerzmittels"
+        elif medikament == "Naproxen":
+            return "https://www.apotheken-umschau.de/medikamente/beipackzettel/naproxen-al-500-tabletten-4900350.html"
+        elif medikament == "Novalgin":
+            return "https://www.apotheken-umschau.de/medikamente/beipackzettel/novalgin-filmtabletten-731577.html#dosierung"
+        else:
+            return "Medikament nicht gefunden"
         
 
     def caculate_time_difference(self,current_time: datetime.time, old_time: Union[datetime.time, str]) -> float:
@@ -60,8 +86,3 @@ class Dosage:
         remaining_dosis = daily_dosis_mg - dosis - current_old_dosis
         self.add_old_dosis(medikament=medikament, current_dosis=dosis, time=time)
         return remaining_dosis
-    
-# if __name__ == "__main__":
-#    dosage = Dosage()
-#    dosage.remaining_dosis( medikament="Ibuprofen",dosis= 100)
-#    dosage.remaining_dosis( medikament="Ibuprofen",dosis= 300)
